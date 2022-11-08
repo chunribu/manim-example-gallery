@@ -15,6 +15,6 @@ class DissipatingPathExample(Scene):
         self.wait()
 ```
 
-这是一段描述。
+`TracedPath`用于追踪点的轨迹。接收一个函数，用于获取坐标。可以传入消散时间，轨迹会在一段时间后消散。例子中设置`stroke_opacity`为非单一数值，得到渐变效果。
 
-关键词：`kw1` `kw2`
+关键词：`trace` `path` `animation`

@@ -1,6 +1,7 @@
 _build/
 media/
-_static
+_static/*
+test.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
