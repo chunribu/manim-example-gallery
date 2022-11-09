@@ -2,3 +2,4 @@ format: jb-book
 root: src/index
 chapters:
 - file: src/DissipatingPathExample
+- file: src/BatchAnimationExample

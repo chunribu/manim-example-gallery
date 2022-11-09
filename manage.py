@@ -29,7 +29,7 @@ def exec_code(code):
 '''
     cls_name = match_scene_name(code)
     fname = '.' + cls_name + '.py'
-    with open(fname, 'w') as f:
+    with open(fname, 'w', encoding='UTF-8') as f:
         f.write(header + code)
     os.system(f'manim {fname} {cls_name}')
     shutil.move(f'media/videos/.{cls_name}/1080p60/{cls_name}.mp4',
