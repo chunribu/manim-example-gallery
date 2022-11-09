@@ -63,7 +63,7 @@ def inst_dev_reqs():
     os.system('pip install -r requirements.txt')
 
 def build():
-    os.system('jb build .')
+    os.system('jb build . --all')
 
 def deploy():
     os.system('ghp-import -n -p -f _build/html')
