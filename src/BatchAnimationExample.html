@@ -262,7 +262,7 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>批量动画<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <video controls loop style="width:100%;">
-    <source src=../_static/BatchAnimationExample.mp4 type="video/mp4"> </source>
+    <source src=../_static/TestScene.mp4 type="video/mp4"> </source>
 </video>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;随机打乱字符串并返回新的字符串&#39;&#39;&#39;</span>
@@ -271,33 +271,25 @@ title="Print to PDF"
     <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">char_list</span><span class="p">)</span>
     <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">char_list</span><span class="p">)</span>
 
-<span class="k">class</span> <span class="nc">BatchAnimationExample</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">TestScene</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># 批量生成元素</span>
-        <span class="n">chars</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="c1"># 生成20个字符</span>
+        <span class="n">chars</span> <span class="o">=</span> <span class="n">VGroup</span><span class="p">(</span><span class="o">*</span><span class="p">(</span>
             <span class="n">Text</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">color</span><span class="o">.</span><span class="n">random_color</span><span class="p">())</span>
             <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">shuffle</span><span class="p">(</span><span class="s1">&#39;MANIM&#39;</span><span class="p">)</span>
-        <span class="p">]</span>
-        <span class="c1"># 利用VGroup的arrange方法排列对齐</span>
-        <span class="n">char_group</span> <span class="o">=</span> <span class="n">VGroup</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-            <span class="n">row</span> <span class="o">=</span> <span class="n">VGroup</span><span class="p">(</span><span class="o">*</span><span class="n">chars</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">5</span><span class="p">])</span>
-            <span class="n">row</span><span class="o">.</span><span class="n">arrange</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">)</span>
-            <span class="n">char_group</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
-        <span class="n">char_group</span><span class="o">.</span><span class="n">arrange</span><span class="p">(</span><span class="n">DOWN</span><span class="p">)</span>
-        <span class="c1"># 用AnimationGroup管理多个FadeIn动画</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">AnimationGroup</span><span class="p">(</span><span class="o">*</span><span class="p">(</span>
-                <span class="n">FadeIn</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="n">DOWN</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">chars</span>
-            <span class="p">),</span>
-            <span class="n">lag_ratio</span> <span class="o">=</span> <span class="mf">.5</span><span class="p">,</span>
-            <span class="n">run_time</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
         <span class="p">))</span>
-        <span class="c1"># 停留1秒</span>
+        <span class="c1"># 网格排列（4行5列）</span>
+        <span class="n">chars</span><span class="o">.</span><span class="n">arrange_in_grid</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+        <span class="c1"># 用AnimationGroup管理多个FadeIn动画</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">AnimationGroup</span><span class="p">(</span>
+            <span class="o">*</span><span class="p">(</span><span class="n">FadeIn</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="n">DOWN</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">chars</span><span class="p">),</span>
+            <span class="n">lag_ratio</span> <span class="o">=</span> <span class="mf">.3</span><span class="p">,</span>
+        <span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>使用<code class="docutils literal notranslate"><span class="pre">AnimationGroup</span></code>管理多个动画，设置<code class="docutils literal notranslate"><span class="pre">run_time</span></code>为总动画时长，<code class="docutils literal notranslate"><span class="pre">lag_ratio</span></code>为相邻两个动画之间的延迟程度，数值可以大于1。</p>
+<p>使用<code class="docutils literal notranslate"><span class="pre">AnimationGroup</span></code>管理多个动画，<code class="docutils literal notranslate"><span class="pre">lag_ratio</span></code>为相邻两个动画之间的延迟程度，数值可以大于1。</p>
 <p>关键词：<code class="docutils literal notranslate"><span class="pre">batch</span></code> <code class="docutils literal notranslate"><span class="pre">multi</span></code> <code class="docutils literal notranslate"><span class="pre">animation</span></code> <code class="docutils literal notranslate"><span class="pre">AnimationGroup</span></code></p>
 </section>
 
