@@ -1,6 +1,6 @@
 _build/
 media/
-_static/*
+_static/*.mp4
 test.py
 
 # Byte-compiled / optimized / DLL files
