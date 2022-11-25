@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>首页 &#8212; Manim Example Gallery</title>
+    <title>渐入 &#8212; Manim Example Gallery</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,11 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://chunribu.github.io/src/index.html" />
+    <link rel="canonical" href="https://chunribu.github.io/src/FadeIn.html" />
     <link rel="shortcut icon" href="../_static/meg.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="显示运动轨迹" href="DissipatingPathExample.html" />
+    <link rel="next" title="渐大" href="GrowFromEdge.html" />
+    <link rel="prev" title="折线图" href="HeatDiagram.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,13 +109,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
                     首页
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DissipatingPathExample.html">
    显示运动轨迹
@@ -155,8 +156,8 @@ const thebe_selector_output = ".output, .cell_output"
    折线图
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="FadeIn.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    渐入
   </a>
  </li>
@@ -238,7 +239,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/src/index.md"
+        <a href="../_sources/src/FadeIn.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -287,7 +288,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>首页</h1>
+                <h1>渐入</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -300,10 +301,27 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>首页<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p><img alt="logo" src="../_images/meg.png" /></p>
-<div class="toctree-wrapper compound">
+<h1>渐入<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<video controls loop style="width:100%;">
+    <source src=../_static/FadeInExample.mp4 type="video/mp4"> </source>
+</video>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FadeInExample</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dot</span> <span class="o">=</span> <span class="n">Dot</span><span class="p">(</span><span class="n">UP</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">LEFT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dot</span><span class="p">)</span>
+        <span class="n">tex</span> <span class="o">=</span> <span class="n">Tex</span><span class="p">(</span>
+            <span class="s2">&quot;FadeIn with &quot;</span><span class="p">,</span> <span class="s2">&quot;shift &quot;</span><span class="p">,</span> <span class="s2">&quot; or target\_position&quot;</span><span class="p">,</span> <span class="s2">&quot; and scale&quot;</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">animations</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">FadeIn</span><span class="p">(</span><span class="n">tex</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="n">FadeIn</span><span class="p">(</span><span class="n">tex</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">shift</span><span class="o">=</span><span class="n">DOWN</span><span class="p">),</span>
+            <span class="n">FadeIn</span><span class="p">(</span><span class="n">tex</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">target_position</span><span class="o">=</span><span class="n">dot</span><span class="p">),</span>
+            <span class="n">FadeIn</span><span class="p">(</span><span class="n">tex</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">),</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">AnimationGroup</span><span class="p">(</span><span class="o">*</span><span class="n">animations</span><span class="p">,</span> <span class="n">lag_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
 </div>
+<p>关键词：<code class="docutils literal notranslate"><span class="pre">FadeIn</span></code> <code class="docutils literal notranslate"><span class="pre">animation</span></code></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -333,10 +351,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="DissipatingPathExample.html" title="next page">
+    <a class='left-prev' id="prev-link" href="HeatDiagram.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">折线图</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="GrowFromEdge.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">显示运动轨迹</p>
+        <p class="prev-next-title">渐大</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

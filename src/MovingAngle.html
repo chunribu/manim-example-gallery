@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>首页 &#8212; Manim Example Gallery</title>
+    <title>角度变化 &#8212; Manim Example Gallery</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,11 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://chunribu.github.io/src/index.html" />
+    <link rel="canonical" href="https://chunribu.github.io/src/MovingAngle.html" />
     <link rel="shortcut icon" href="../_static/meg.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="显示运动轨迹" href="DissipatingPathExample.html" />
+    <link rel="next" title="框移动" href="MovingFrameBox.html" />
+    <link rel="prev" title="批量动画" href="BatchAnimationExample.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,13 +109,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
                     首页
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DissipatingPathExample.html">
    显示运动轨迹
@@ -125,8 +126,8 @@ const thebe_selector_output = ".output, .cell_output"
    批量动画
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="MovingAngle.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    角度变化
   </a>
  </li>
@@ -238,7 +239,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/src/index.md"
+        <a href="../_sources/src/MovingAngle.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -287,7 +288,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>首页</h1>
+                <h1>角度变化</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -300,10 +301,56 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>首页<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p><img alt="logo" src="../_images/meg.png" /></p>
-<div class="toctree-wrapper compound">
+<h1>角度变化<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<video controls loop style="width:100%;">
+    <source src=../_static/MovingAngle.mp4 type="video/mp4"> </source>
+</video>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MovingAngle</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rotation_center</span> <span class="o">=</span> <span class="n">LEFT</span>
+
+        <span class="n">theta_tracker</span> <span class="o">=</span> <span class="n">ValueTracker</span><span class="p">(</span><span class="mi">110</span><span class="p">)</span>
+        <span class="n">line1</span> <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">LEFT</span><span class="p">,</span> <span class="n">RIGHT</span><span class="p">)</span>
+        <span class="n">line_moving</span> <span class="o">=</span> <span class="n">Line</span><span class="p">(</span><span class="n">LEFT</span><span class="p">,</span> <span class="n">RIGHT</span><span class="p">)</span>
+        <span class="n">line_ref</span> <span class="o">=</span> <span class="n">line_moving</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">line_moving</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span>
+            <span class="n">theta_tracker</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span> <span class="o">*</span> <span class="n">DEGREES</span><span class="p">,</span> <span class="n">about_point</span><span class="o">=</span><span class="n">rotation_center</span>
+        <span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">Angle</span><span class="p">(</span><span class="n">line1</span><span class="p">,</span> <span class="n">line_moving</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">other_angle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">tex</span> <span class="o">=</span> <span class="n">MathTex</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\theta&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span>
+            <span class="n">Angle</span><span class="p">(</span>
+                <span class="n">line1</span><span class="p">,</span> <span class="n">line_moving</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">SMALL_BUFF</span><span class="p">,</span> <span class="n">other_angle</span><span class="o">=</span><span class="kc">False</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">point_from_proportion</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">line1</span><span class="p">,</span> <span class="n">line_moving</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">tex</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+        <span class="n">line_moving</span><span class="o">.</span><span class="n">add_updater</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">become</span><span class="p">(</span><span class="n">line_ref</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span>
+                <span class="n">theta_tracker</span><span class="o">.</span><span class="n">get_value</span><span class="p">()</span> <span class="o">*</span> <span class="n">DEGREES</span><span class="p">,</span> <span class="n">about_point</span><span class="o">=</span><span class="n">rotation_center</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">a</span><span class="o">.</span><span class="n">add_updater</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">become</span><span class="p">(</span><span class="n">Angle</span><span class="p">(</span><span class="n">line1</span><span class="p">,</span> <span class="n">line_moving</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">other_angle</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="n">tex</span><span class="o">.</span><span class="n">add_updater</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span>
+                <span class="n">Angle</span><span class="p">(</span>
+                    <span class="n">line1</span><span class="p">,</span> <span class="n">line_moving</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">SMALL_BUFF</span><span class="p">,</span> <span class="n">other_angle</span><span class="o">=</span><span class="kc">False</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">point_from_proportion</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">theta_tracker</span><span class="o">.</span><span class="n">animate</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">40</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">theta_tracker</span><span class="o">.</span><span class="n">animate</span><span class="o">.</span><span class="n">increment_value</span><span class="p">(</span><span class="mi">140</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">tex</span><span class="o">.</span><span class="n">animate</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">RED</span><span class="p">),</span> <span class="n">run_time</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">theta_tracker</span><span class="o">.</span><span class="n">animate</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="mi">350</span><span class="p">))</span>
+</pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">Angle(line1,</span> <span class="pre">line_moving)</span></code>用来生成角度。<code class="docutils literal notranslate"><span class="pre">theta_tracker</span></code>作为自变量，然后分别为三个需要依据theta变化的对象添加更新函数。播放时，只需要设置<code class="docutils literal notranslate"><span class="pre">theta_tracker</span></code>的值即可。</p>
+<p>关键词：<code class="docutils literal notranslate"><span class="pre">Angle</span></code> <code class="docutils literal notranslate"><span class="pre">updater</span></code> <code class="docutils literal notranslate"><span class="pre">ValueTracker</span></code></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -333,10 +380,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="DissipatingPathExample.html" title="next page">
+    <a class='left-prev' id="prev-link" href="BatchAnimationExample.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">批量动画</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="MovingFrameBox.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">显示运动轨迹</p>
+        <p class="prev-next-title">框移动</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

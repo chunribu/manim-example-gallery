@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>首页 &#8212; Manim Example Gallery</title>
+    <title>函数图象 &#8212; Manim Example Gallery</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,11 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://chunribu.github.io/src/index.html" />
+    <link rel="canonical" href="https://chunribu.github.io/src/FunctionGraph.html" />
     <link rel="shortcut icon" href="../_static/meg.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="显示运动轨迹" href="DissipatingPathExample.html" />
+    <link rel="next" title="图象阴影" href="GraphArea.html" />
+    <link rel="prev" title="随时间更新" href="TimeUpdater.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,13 +109,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
                     首页
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="DissipatingPathExample.html">
    显示运动轨迹
@@ -140,8 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
    随时间更新
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="FunctionGraph.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    函数图象
   </a>
  </li>
@@ -238,7 +239,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/src/index.md"
+        <a href="../_sources/src/FunctionGraph.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -287,7 +288,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>首页</h1>
+                <h1>函数图象</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -300,10 +301,46 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>首页<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p><img alt="logo" src="../_images/meg.png" /></p>
-<div class="toctree-wrapper compound">
+<h1>函数图象<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<video controls loop style="width:100%;">
+    <source src=../_static/FunctionGraph.mp4 type="video/mp4"> </source>
+</video>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">FunctionGraph</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">axes</span> <span class="o">=</span> <span class="n">Axes</span><span class="p">(</span>
+            <span class="n">x_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mf">10.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">y_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">x_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">axis_config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="n">BLUE</span><span class="p">},</span>
+            <span class="n">x_axis_config</span><span class="o">=</span><span class="p">{</span>
+                <span class="s2">&quot;numbers_to_include&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mf">10.01</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+                <span class="s2">&quot;numbers_with_elongated_ticks&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mf">10.01</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+            <span class="p">},</span>
+            <span class="n">tips</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">axes_labels</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">get_axis_labels</span><span class="p">()</span>
+        <span class="n">cos_graph</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">RED</span><span class="p">)</span>
+
+        <span class="n">cos_label</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">get_graph_label</span><span class="p">(</span><span class="n">cos_graph</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">cos(x)&quot;</span><span class="p">)</span>
+
+        <span class="n">vert_line</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">get_vertical_line</span><span class="p">(</span>
+            <span class="n">axes</span><span class="o">.</span><span class="n">i2gp</span><span class="p">(</span><span class="n">TAU</span><span class="p">,</span> <span class="n">cos_graph</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">YELLOW</span><span class="p">,</span> <span class="n">line_func</span><span class="o">=</span><span class="n">Line</span>
+        <span class="p">)</span>
+        <span class="n">line_label</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">get_graph_label</span><span class="p">(</span>
+            <span class="n">cos_graph</span><span class="p">,</span> <span class="s2">&quot;x=2\pi&quot;</span><span class="p">,</span> <span class="n">x_val</span><span class="o">=</span><span class="n">TAU</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="n">UR</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">WHITE</span>
+        <span class="p">)</span>
+
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">VGroup</span><span class="p">(</span><span class="n">axes_labels</span><span class="p">,</span> <span class="n">cos_label</span><span class="p">,</span> <span class="n">line_label</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Create</span><span class="p">(</span><span class="n">axes</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Create</span><span class="p">(</span><span class="n">cos_graph</span><span class="p">,</span> <span class="n">run_time</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Create</span><span class="p">(</span><span class="n">vert_line</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Write</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">i2gp</span></code>: input to graph; TAU: 2*PI; UR: Upper Right</p>
+<p>关键词：<code class="docutils literal notranslate"><span class="pre">Function</span></code> <code class="docutils literal notranslate"><span class="pre">Graph</span></code> <code class="docutils literal notranslate"><span class="pre">draw</span></code> <code class="docutils literal notranslate"><span class="pre">plot</span></code></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -333,10 +370,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="DissipatingPathExample.html" title="next page">
+    <a class='left-prev' id="prev-link" href="TimeUpdater.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">随时间更新</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="GraphArea.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">显示运动轨迹</p>
+        <p class="prev-next-title">图象阴影</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
