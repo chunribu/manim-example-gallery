@@ -11,3 +11,8 @@ chapters:
 - file: src/HeatDiagram
 - file: src/FadeIn
 - file: src/GrowFromEdge
+- file: src/RestoreState
+- file: src/FullScreenRectangle
+- file: src/Ellipse
+- file: src/Elbow
+- file: src/TangentLine
