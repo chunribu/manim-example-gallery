@@ -39,6 +39,6 @@ class FunctionGraph(Scene):
         self.wait()
 ```
 
-`i2gp`: input to graph; TAU: 2*PI; UR: Upper Right
+`i2gp`: input to graph; `TAU`: 2*PI; `UR`: Upper Right
 
 关键词：`Function` `Graph` `draw` `plot`
