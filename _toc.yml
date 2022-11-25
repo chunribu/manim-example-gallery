@@ -3,3 +3,11 @@ root: src/index
 chapters:
 - file: src/DissipatingPathExample
 - file: src/BatchAnimationExample
+- file: src/MovingAngle
+- file: src/MovingFrameBox
+- file: src/TimeUpdater
+- file: src/FunctionGraph
+- file: src/GraphArea
+- file: src/HeatDiagram
+- file: src/FadeIn
+- file: src/GrowFromEdge
