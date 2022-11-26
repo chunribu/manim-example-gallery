@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>恢复原样 &#8212; Manim Example Gallery</title>
+    <title>隐函数图象 &#8212; Manim Example Gallery</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,12 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://chunribu.github.io/src/RestoreState.html" />
+    <link rel="canonical" href="https://chunribu.github.io/src/ImplicitFunctionGraph.html" />
     <link rel="shortcut icon" href="../_static/meg.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="全屏" href="FullScreenRectangle.html" />
-    <link rel="prev" title="渐大" href="GrowFromEdge.html" />
+    <link rel="next" title="数轴" href="NumberLine.html" />
+    <link rel="prev" title="切线" href="TangentLine.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -166,8 +166,8 @@ const thebe_selector_output = ".output, .cell_output"
    渐大
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="RestoreState.html">
    恢复原样
   </a>
  </li>
@@ -191,8 +191,8 @@ const thebe_selector_output = ".output, .cell_output"
    切线
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ImplicitFunctionGraph.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    隐函数图象
   </a>
  </li>
@@ -279,7 +279,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/src/RestoreState.md"
+        <a href="../_sources/src/ImplicitFunctionGraph.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -328,7 +328,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>恢复原样</h1>
+                <h1>隐函数图象</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -341,23 +341,24 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>恢复原样<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1>隐函数图象<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <video controls loop style="width:100%;">
-    <source src=../_static/RestoreExample.mp4 type="video/mp4"> </source>
+    <source src=../_static/ImplicitFunctionGraph.mp4 type="video/mp4"> </source>
 </video>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">RestoreExample</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ImplicitFunctionGraph</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">Square</span><span class="p">()</span>
-        <span class="n">s</span><span class="o">.</span><span class="n">save_state</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">FadeIn</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">animate</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">PURPLE</span><span class="p">)</span><span class="o">.</span><span class="n">set_opacity</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">LEFT</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">animate</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">DOWN</span><span class="p">)</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">PI</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">Axes</span><span class="p">()</span>
+        <span class="n">graph</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot_implicit_curve</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="n">RED</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Create</span><span class="p">(</span><span class="n">graph</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Restore</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">run_time</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">save_state</span></code>方法用于记录当下状态。<code class="docutils literal notranslate"><span class="pre">Restore</span></code>动画将s恢复为之前记录的状态，等同于<code class="docutils literal notranslate"><span class="pre">s.animate.restore()</span></code>。</p>
-<p>关键词：<code class="docutils literal notranslate"><span class="pre">state</span></code> <code class="docutils literal notranslate"><span class="pre">restore</span></code> <code class="docutils literal notranslate"><span class="pre">animation</span></code></p>
+<p>这里的<code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x,</span> <span class="pre">y:</span> <span class="pre">y**2</span> <span class="pre">+</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">x</span></code>表示<code class="docutils literal notranslate"><span class="pre">F(x,</span> <span class="pre">y)</span> <span class="pre">=</span> <span class="pre">y^2</span> <span class="pre">+</span> <span class="pre">2x</span> <span class="pre">=</span> <span class="pre">0</span></code>。</p>
+<p>关键词：<code class="docutils literal notranslate"><span class="pre">ImplicitFunction</span></code> <code class="docutils literal notranslate"><span class="pre">plot</span></code></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -387,17 +388,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="GrowFromEdge.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="TangentLine.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">渐大</p>
+            <p class="prev-next-title">切线</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="FullScreenRectangle.html" title="next page">
+    <a class='right-next' id="next-link" href="NumberLine.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">全屏</p>
+        <p class="prev-next-title">数轴</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
