@@ -16,3 +16,6 @@ chapters:
 - file: src/Ellipse
 - file: src/Elbow
 - file: src/TangentLine
+- file: src/ImplicitFunctionGraph
+- file: src/NumberLine
+- file: src/BarChart
