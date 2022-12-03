@@ -19,3 +19,4 @@ chapters:
 - file: src/ImplicitFunctionGraph
 - file: src/NumberLine
 - file: src/BarChart
+- file: src/GraphTransform
