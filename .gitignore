@@ -2,6 +2,7 @@ _build/
 media/
 _static/*.mp4
 test.py
+gallery.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

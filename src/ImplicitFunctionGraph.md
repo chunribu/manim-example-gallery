@@ -13,8 +13,7 @@ class ImplicitFunctionGraph(Scene):
             color=RED
         )
         self.add(ax)
-        self.play(Create(graph))
-        self.wait()
+        self.play(Create(graph, run_time=2))
 ```
 
 这里的`lambda x, y: y**2 + 2 * x`表示`F(x, y) = y^2 + 2x = 0`。
