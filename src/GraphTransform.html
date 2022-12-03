@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>切线 &#8212; Manim Example Gallery</title>
+    <title>函数图象变换 &#8212; Manim Example Gallery</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,12 +50,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://chunribu.github.io/src/TangentLine.html" />
+    <link rel="canonical" href="https://chunribu.github.io/src/GraphTransform.html" />
     <link rel="shortcut icon" href="../_static/meg.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="隐函数图象" href="ImplicitFunctionGraph.html" />
-    <link rel="prev" title="直角" href="Elbow.html" />
+    <link rel="prev" title="条形图" href="BarChart.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -186,8 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
    直角
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="TangentLine.html">
    切线
   </a>
  </li>
@@ -206,8 +205,8 @@ const thebe_selector_output = ".output, .cell_output"
    条形图
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="GraphTransform.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    函数图象变换
   </a>
  </li>
@@ -284,7 +283,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/src/TangentLine.md"
+        <a href="../_sources/src/GraphTransform.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -333,7 +332,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>切线</h1>
+                <h1>函数图象变换</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -346,21 +345,31 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>切线<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1>函数图象变换<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <video controls loop style="width:100%;">
-    <source src=../_static/TangentLineExample.mp4 type="video/mp4"> </source>
+    <source src=../_static/GraphTransform.mp4 type="video/mp4"> </source>
 </video>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TangentLineExample</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">GraphTransform</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">line_1</span> <span class="o">=</span> <span class="n">TangentLine</span><span class="p">(</span><span class="n">circle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">BLUE_D</span><span class="p">)</span> <span class="c1"># right</span>
-        <span class="n">line_2</span> <span class="o">=</span> <span class="n">TangentLine</span><span class="p">(</span><span class="n">circle</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">GREEN</span><span class="p">)</span> <span class="c1"># top left</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Create</span><span class="p">(</span><span class="n">line_1</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Create</span><span class="p">(</span><span class="n">line_2</span><span class="p">))</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">Axes</span><span class="p">()</span>
+        <span class="n">curve1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">.1</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">TEAL</span><span class="p">)</span>
+        
+        <span class="n">curve2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">TEAL</span><span class="p">)</span>
+
+        <span class="n">part1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">x_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">part2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x_range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+        <span class="n">curve3</span> <span class="o">=</span> <span class="n">VGroup</span><span class="p">()</span><span class="o">.</span><span class="n">set_points</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span>
+            <span class="n">part1</span><span class="o">.</span><span class="n">get_all_points</span><span class="p">(),</span> 
+            <span class="n">part2</span><span class="o">.</span><span class="n">get_all_points</span><span class="p">()</span>
+        <span class="p">)))</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">TEAL</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Create</span><span class="p">(</span><span class="n">curve1</span><span class="p">,</span> <span class="n">run_time</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">ReplacementTransform</span><span class="p">(</span><span class="n">curve1</span><span class="p">,</span> <span class="n">curve2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">ReplacementTransform</span><span class="p">(</span><span class="n">curve2</span><span class="p">,</span> <span class="n">curve3</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>关键词：<code class="docutils literal notranslate"><span class="pre">TangentLine</span></code> <code class="docutils literal notranslate"><span class="pre">line</span></code></p>
+<p>关键词：<code class="docutils literal notranslate"><span class="pre">FunctionGraph</span></code> <code class="docutils literal notranslate"><span class="pre">Transform</span></code></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -390,19 +399,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Elbow.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="BarChart.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">直角</p>
+            <p class="prev-next-title">条形图</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="ImplicitFunctionGraph.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">隐函数图象</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
