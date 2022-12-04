@@ -25,8 +25,7 @@ class HeatDiagramPlot(Scene):
         graph = ax.plot_line_graph(x_values=x_vals, y_values=y_vals)
 
         self.play(Create(ax), Create(labels))
-        self.play(Create(graph))
-        self.wait()
+        self.play(Create(graph, run_time=3))
 ```
 
 关键词：`LinePlot` `line`
