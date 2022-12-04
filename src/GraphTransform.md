@@ -12,12 +12,11 @@ class GraphTransform(Scene):
         
         curve2 = ax.plot(lambda x: 0, color=TEAL)
 
-        part1 = ax.plot(lambda x: -2, x_range=[-7,0])
-        part2 = ax.plot(lambda x: 2, x_range=[0,7])
-        curve3 = VGroup().set_points(np.vstack((
-            part1.get_all_points(), 
-            part2.get_all_points()
-        ))).set_color(TEAL)
+        curve3 = ax.plot(
+            lambda x: -2 if x<0 else 2,
+            discontinuities=[0],
+            color=TEAL,
+        )
 
         self.add(ax)
         self.play(Create(curve1, run_time=2))
