@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>显示运动轨迹 &#8212; Manim Example Gallery</title>
+    <title>镜头缩放 &#8212; Manim Example Gallery</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,12 +50,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://chunribu.github.io/src/DissipatingPathExample.html" />
+    <link rel="canonical" href="https://chunribu.github.io/src/Zooming.html" />
     <link rel="shortcut icon" href="../_static/meg.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="批量动画" href="BatchAnimationExample.html" />
-    <link rel="prev" title="首页" href="index.html" />
+    <link rel="prev" title="电路图" href="Circuit.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -116,8 +115,8 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="DissipatingPathExample.html">
    显示运动轨迹
   </a>
  </li>
@@ -216,8 +215,8 @@ const thebe_selector_output = ".output, .cell_output"
    电路图
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Zooming.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    镜头缩放
   </a>
  </li>
@@ -294,7 +293,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/src/DissipatingPathExample.md"
+        <a href="../_sources/src/Zooming.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -343,7 +342,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>显示运动轨迹</h1>
+                <h1>镜头缩放</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -356,22 +355,34 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>显示运动轨迹<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1>镜头缩放<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <video controls loop style="width:100%;">
-    <source src=../_static/DissipatingPathExample.mp4 type="video/mp4"> </source>
+    <source src=../_static/Zooming.mp4 type="video/mp4"> </source>
 </video>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DissipatingPathExample</span><span class="p">(</span><span class="n">Scene</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Zooming</span><span class="p">(</span><span class="n">MovingCameraScene</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">Dot</span><span class="p">(</span><span class="n">RIGHT</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">TracedPath</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">get_center</span><span class="p">,</span> <span class="n">dissipating_time</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">stroke_opacity</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">path_arc</span><span class="o">=</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">LEFT</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">animate</span><span class="p">(</span><span class="n">path_arc</span><span class="o">=-</span><span class="n">PI</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">LEFT</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="n">text</span><span class="o">=</span><span class="n">MathTex</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\nabla\textbf</span><span class="si">{u}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">square</span><span class="o">=</span><span class="n">Square</span><span class="p">()</span>
+        <span class="n">VGroup</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="n">square</span><span class="p">)</span><span class="o">.</span><span class="n">arrange</span><span class="p">(</span><span class="n">RIGHT</span><span class="p">,</span> <span class="n">buff</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">text</span><span class="p">,</span><span class="n">square</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">save_state</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">auto_zoom</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Restore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">frame</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">auto_zoom</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">Restore</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">frame</span><span class="p">))</span>
+
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">TracedPath</span></code>用于追踪点的轨迹。接收一个函数，用于获取坐标。可以传入消散时间，轨迹会在一段时间后消散。例子中设置<code class="docutils literal notranslate"><span class="pre">stroke_opacity</span></code>为非单一数值，得到渐变效果。</p>
-<p>关键词：<code class="docutils literal notranslate"><span class="pre">trace</span></code> <code class="docutils literal notranslate"><span class="pre">path</span></code> <code class="docutils literal notranslate"><span class="pre">animation</span></code></p>
+<p>关键词：<code class="docutils literal notranslate"><span class="pre">Camera</span></code> <code class="docutils literal notranslate"><span class="pre">Zoom</span></code> <code class="docutils literal notranslate"><span class="pre">zoom</span> <span class="pre">in</span></code></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -401,19 +412,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Circuit.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">首页 <img src="../_images/meg.png" align=right /></p>
+            <p class="prev-next-title">电路图</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="BatchAnimationExample.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">批量动画</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
