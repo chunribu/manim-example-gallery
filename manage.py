@@ -10,7 +10,7 @@ def match_code_blocks(from_):
     return re.findall(pattern, from_, flags=re.DOTALL)
 
 def match_scene_name(from_):
-    return re.search(r'class (\w+)\(Scene\)', from_).group(1)
+    return re.search(r'class (\w+)\(\w*Scene\)', from_).group(1)
 
 def video_tag(cls_name):
     template = '''<video controls loop style="width:100%;">

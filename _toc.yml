@@ -21,3 +21,4 @@ chapters:
 - file: src/BarChart
 - file: src/GraphTransform
 - file: src/Circuit
+- file: src/Zooming
