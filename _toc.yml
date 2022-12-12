@@ -22,3 +22,4 @@ chapters:
 - file: src/GraphTransform
 - file: src/Circuit
 - file: src/Zooming
+- file: src/MoveCamera
