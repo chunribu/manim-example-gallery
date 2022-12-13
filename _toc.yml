@@ -1,6 +1,7 @@
 format: jb-book
 root: src/index
 chapters:
+- file: src/get_started
 - file: src/DissipatingPathExample
 - file: src/BatchAnimationExample
 - file: src/MovingAngle
